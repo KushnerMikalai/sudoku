@@ -52,17 +52,17 @@ module.exports = function solveSudoku(matrix) {
     const values = [1,2,3,4,5,6,7,8,9];
     const solveMatrix = matrix;
 
-    for (y=0; y < 9; y++) {
-        var _values = values.map(function(v){return v;});
+    for (let y = 0; y < 9; y++) {
 
-        for (x=0; x<9; x++) {
+        for (let x = 0; x < 9; x++) {
             if (matrix[y][x] != 0) {
-                _values.splice(_values.indexOf(matrix[y][x]), 1);
+                values.splice(values.indexOf(matrix[y][x]), 1);
             }
         }
-        for (x=0; x<9; x++) {
+
+        for (let x = 0; x < 9; x++) {
             if (matrix[y][x] == 0) {
-                solveMatrix[y][x] = _values.map(function(v){return v;});
+                solveMatrix[y][x] = values.map(v => v);
             }
         }
     }
